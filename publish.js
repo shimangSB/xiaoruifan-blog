@@ -103,7 +103,7 @@ if (pushed) {
   console.log('  ================ 上传失败 ================');
   console.log('');
   console.log('  常见原因：');
-  console.log('    1. GitHub 上还没有建仓库，或者仓库名字不是 blog');
+  console.log('    1. GitHub 上还没有建仓库，或者仓库名字不是 xiaoruifan-blog');
   console.log('    2. 没有登录 GitHub，或者登录的账号不是 shimangSB');
   console.log('    3. 网络问题，过一会儿再试一次');
   console.log('');
