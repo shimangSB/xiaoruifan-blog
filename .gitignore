@@ -1,0 +1,9 @@
+# 临时文件和系统文件，不需要上传到网上
+_preview/
+Thumbs.db
+desktop.ini
+.DS_Store
+*.log
+*.tmp
+
+# 注意：docs 文件夹是网站本体，绝对不要写进这里！

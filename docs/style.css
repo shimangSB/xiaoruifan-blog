@@ -1,0 +1,315 @@
+/* ============================================================
+   博客样式
+   ------------------------------------------------------------
+   想换颜色？改下面 --accent 那一行的色号就行（比如 #e0523f）。
+   想换字体大小？改 body 里的 font-size。
+   ============================================================ */
+
+:root {
+  --bg: #fbfbfa;
+  --fg: #24292f;
+  --muted: #6b7280;
+  --accent: #2f6feb;
+  --border: #e7e8ea;
+  --card: #ffffff;
+  --code-bg: #f4f5f7;
+  --quote-bg: #f7f8fa;
+  --max: 720px;
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans SC",
+          "Noto Sans CJK SC", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16181d;
+    --fg: #e3e6ea;
+    --muted: #98a1ae;
+    --accent: #7aa7ff;
+    --border: #2b2f36;
+    --card: #1c1f25;
+    --code-bg: #23272e;
+    --quote-bg: #1f232a;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+  word-wrap: break-word;
+}
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ---------------- 顶部 ---------------- */
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  padding: 34px 0 22px;
+  margin-bottom: 44px;
+}
+
+.site-title {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: 0.02em;
+}
+.site-title:hover { text-decoration: none; color: var(--accent); }
+
+.site-sub {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.site-nav { margin-top: 16px; }
+
+.site-nav a {
+  display: inline-block;
+  margin-right: 18px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.site-nav a:hover { color: var(--accent); }
+
+/* ---------------- 首页文章列表 ---------------- */
+
+.post-list { margin: 0 0 40px; }
+
+.post-item {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--border);
+}
+.post-item:first-child { padding-top: 0; }
+.post-item:last-child { border-bottom: none; }
+
+.post-date {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.post-item .post-title {
+  margin: 6px 0 0;
+  font-size: 1.28rem;
+  line-height: 1.5;
+}
+.post-item .post-title a { color: var(--fg); }
+.post-item .post-title a:hover { color: var(--accent); text-decoration: none; }
+
+.post-summary {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
+.post-tags { margin: 10px 0 0; }
+
+/* ---------------- 标签 ---------------- */
+
+.tags { display: inline; }
+
+.tag {
+  display: inline-block;
+  padding: 1px 10px;
+  margin: 2px 6px 2px 0;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+.tag:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+
+.tag-cloud { margin: 18px 0 34px; }
+.tag-count { opacity: 0.6; }
+
+.tag-section { margin-bottom: 30px; }
+.tag-section h2 {
+  font-size: 1.05rem;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.plain-list { list-style: none; padding: 0; margin: 0; }
+.plain-list li {
+  padding: 7px 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 0.95rem;
+}
+.plain-list time {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  margin-right: 10px;
+}
+
+/* ---------------- 文章正文 ---------------- */
+
+.post-header { margin-bottom: 30px; }
+
+.post-header .post-title {
+  margin: 0 0 10px;
+  font-size: 1.75rem;
+  line-height: 1.45;
+}
+
+.post-meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.post-body h1, .post-body h2, .post-body h3,
+.post-body h4, .post-body h5, .post-body h6 {
+  line-height: 1.5;
+  margin: 2em 0 0.7em;
+  font-weight: 700;
+}
+.post-body h2 {
+  font-size: 1.3rem;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.post-body h3 { font-size: 1.12rem; }
+.post-body h4 { font-size: 1rem; }
+
+.post-body p { margin: 1.15em 0; }
+
+.post-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 1.5em auto;
+}
+
+.post-body ul, .post-body ol { padding-left: 1.5em; margin: 1.1em 0; }
+.post-body li { margin: 0.4em 0; }
+
+.post-body blockquote {
+  margin: 1.4em 0;
+  padding: 2px 18px;
+  border-left: 3px solid var(--accent);
+  background: var(--quote-bg);
+  border-radius: 0 6px 6px 0;
+  color: var(--muted);
+}
+.post-body blockquote p { margin: 0.7em 0; }
+
+.post-body code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--code-bg);
+  padding: 0.15em 0.42em;
+  border-radius: 4px;
+}
+
+.post-body pre {
+  background: var(--code-bg);
+  padding: 15px 17px;
+  border-radius: 8px;
+  overflow-x: auto;
+  line-height: 1.65;
+  font-size: 0.88rem;
+  border: 1px solid var(--border);
+}
+.post-body pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+.post-body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.4em 0;
+}
+
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.4em 0;
+  font-size: 0.92rem;
+}
+.post-body th, .post-body td {
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  text-align: left;
+}
+.post-body th { background: var(--code-bg); }
+
+/* ---------------- 上下篇 / 返回 ---------------- */
+
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 52px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+.post-nav a { max-width: 48%; }
+.post-nav .next { margin-left: auto; text-align: right; }
+
+.back-home {
+  margin: 26px 0 0;
+  font-size: 0.92rem;
+}
+
+/* ---------------- 其他 ---------------- */
+
+.empty, .not-found {
+  color: var(--muted);
+  text-align: center;
+}
+.not-found { padding: 60px 0; }
+.not-found h1 { font-size: 3.4rem; margin: 0; color: var(--border); }
+
+.site-footer {
+  margin-top: 70px;
+  padding: 26px 0 40px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+.site-footer p { margin: 4px 0; }
+
+/* ---------------- 手机 ---------------- */
+
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  .wrap { padding: 0 18px; }
+  .site-header { padding: 26px 0 18px; margin-bottom: 30px; }
+  .site-title { font-size: 1.3rem; }
+  .post-item { padding: 22px 0; }
+  .post-item .post-title { font-size: 1.15rem; }
+  .post-header .post-title { font-size: 1.4rem; }
+  .post-nav { flex-direction: column; }
+  .post-nav a { max-width: 100%; }
+  .post-nav .next { margin-left: 0; text-align: left; }
+}
