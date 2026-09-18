@@ -1,0 +1,29 @@
+{
+  // ============================================================
+  //  这个文件是给 VS Code 看的配置，双击「用VS Code打开.bat」时会自动生效
+  //  你不需要改它，除非你想换图片存放的位置
+  // ============================================================
+
+  // 保存文件统一用 UTF-8 编码，中文不会乱码
+  "files.encoding": "utf8",
+
+  // 【重点】粘贴 / 拖入截图时，图片自动存到 blog\images 文件夹
+  // 并且自动在文章里插入正确路径，不用你手动写图片地址
+  "markdown.copyFiles.destination": {
+    "**/*.md": "${documentWorkspaceFolder}/images/"
+  },
+
+  // 写 Markdown 时的阅读体验
+  "markdown.preview.fontSize": 16,
+  "markdown.preview.lineHeight": 1.8,
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.renderWhitespace": "none",
+    "editor.fontSize": 15
+  },
+
+  // 侧边栏折叠掉自动生成的网站文件，看着清爽
+  "files.exclude": {
+    "docs/posts": false
+  }
+}
