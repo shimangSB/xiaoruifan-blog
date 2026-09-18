@@ -540,7 +540,8 @@ function main() {
   write('sitemap.xml', buildSitemap(settings, posts));
   write('robots.txt', 'User-agent: *\nAllow: /\n' + (settings.域名 ? 'Sitemap: https://' + settings.域名 + '/sitemap.xml\n' : ''));
   write('.nojekyll', '');
-  if (settings.域名) write('CNAME', settings.域名 + '\n');
+  // 注意：CNAME 文件不要加末尾换行，否则和 GitHub 自己生成的不一致，每次发布都会冲突
+  if (settings.域名) write('CNAME', settings.域名);
 
   console.log('');
   console.log('  博客名称：' + settings.博客名称);
