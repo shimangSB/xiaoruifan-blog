@@ -92,6 +92,14 @@ if (upstream.ok && upstream.out) {
   pushed = run('git', ['push', '-u', 'origin', 'main']);
 }
 
+// git push 上不去时，自动改用 GitHub 接口（国内 github.com 经常连不上，这个通常能连）
+if (!pushed) {
+  console.log('');
+  console.log('      git push 连不上 github.com，自动改用备用通道（api.github.com）…');
+  const fb = spawnSync(process.execPath, [path.join(ROOT, 'push-via-api.js')], { cwd: ROOT, stdio: 'inherit' });
+  pushed = fb.status === 0;
+}
+
 console.log('');
 if (pushed) {
   console.log('  ================ 发布成功 ================');
@@ -105,7 +113,7 @@ if (pushed) {
   console.log('  常见原因：');
   console.log('    1. GitHub 上还没有建仓库，或者仓库名字不是 xiaoruifan-blog');
   console.log('    2. 没有登录 GitHub，或者登录的账号不是 shimangSB');
-  console.log('    3. 网络问题，过一会儿再试一次');
+  console.log('    3. 网络问题：打开 Clash Verge 开启代理，再双击一次这个按钮');
   console.log('');
   process.exit(1);
 }
